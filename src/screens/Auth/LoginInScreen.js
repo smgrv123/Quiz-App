@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, Alert, StyleSheet} from 'react-native';
 import {TextInput, TouchableOpacity} from 'react-native-gesture-handler';
 import auth from '@react-native-firebase/auth';
-import styles from '../styles/AuthStyle';
-import Store from '../Store';
+import styles from '../../styles/AuthStyle';
+import Store from '../../Store';
 
 export default LoginScreen = (props) => {
   const [initializing, setInitializing] = useState(true);
@@ -107,7 +107,6 @@ export default LoginScreen = (props) => {
         style={styles.nextBut}
         onPress={() => {
           Store.email = user.email;
-          console.log(user.email)
           props.navigation.navigate('Type');
         }}>
         <Text style={styles.textAfter}>Journey to be a Quiz Masterrr!!</Text>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import styles from '../styles/EndStyle';
+import styles from '../../styles/EndStyle';
 
 export default End = (props) => {
   const navigation = useNavigation();
@@ -11,7 +11,7 @@ export default End = (props) => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          navigation.replace('page3');
+          navigation.replace('FinalScreen');
         }}>
         <Text style={styles.btnText}>To view your score CLICK ME!</Text>
       </TouchableOpacity>

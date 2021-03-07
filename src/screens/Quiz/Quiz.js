@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, ActivityIndicator} from 'react-native';
 import Axios from 'axios';
 import End from './End';
-import ActivityInd from './ActivityInd';
+import ActivityInd from '../ActivityInd';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import Store from '../Store';
-import styles from '../styles/QuizStyle';
+import Store from '../../Store';
+import styles from '../../styles/QuizStyle';
 
 export default page1 = (props) => {
   const [m, setM] = useState(true);
@@ -33,7 +33,6 @@ export default page1 = (props) => {
         tempObj['ques'] = value['question'];
         tempArray.push(tempObj);
       });
-      console.log(tempArray);
       setQuiz(tempArray);
       Store.quiz = tempArray;
       setM(false);
@@ -44,7 +43,6 @@ export default page1 = (props) => {
     getData();
   }, []);
 
-  // console.log(refresh);
   if (m) {
     return <ActivityInd />;
   } else if (refresh != Store.num) {
@@ -60,22 +58,21 @@ export default page1 = (props) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.options}
-          onPress={(val) => {
+          onPress={() => {
             setAns(1);
           }}>
           <Text style={styles.TextOpt}>{quiz[refresh].options[1]} </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.options}
-          onPress={(val) => {
+          onPress={() => {
             setAns(2);
           }}>
           <Text style={styles.TextOpt}>{quiz[refresh].options[2]} </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.options}
-          onPress={(val) => {
-            console.log('ans', ans, refresh);
+          onPress={() => {
             setAns(3);
           }}>
           <Text style={styles.TextOpt}>{quiz[refresh].options[3]}</Text>
@@ -83,10 +80,8 @@ export default page1 = (props) => {
         <TouchableOpacity
           style={styles.nBtn}
           onPress={() => {
-            console.log(quiz[refresh].options[ans]);
             if (quiz[refresh].options[ans] == quiz[refresh].correctAns) {
               Store.ans = Store.ans + 1;
-              console.log(Store.ans);
               setAns(0);
             }
             setRefresh(refresh + 1);

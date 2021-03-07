@@ -1,14 +1,14 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import page1 from './src/screens/Quiz';
-import Type from './src/screens/Type';
-import page3 from './src/screens/FinalScreen';
+import Quiz from './src/screens/Quiz/Quiz';
+import Type from './src/screens/QuesType/Type';
+import FinalScreen from './src/screens/LeaderBoard/FinalScreen';
 import HomeScreen from './src/screens/HomeScreen';
-import LoginScreen from './src/screens/LoginInScreen';
-import SignInScreen from './src/screens/SignInScreen';
-import Genre from './src/screens/Genre';
-import LeaderBoard from './src/screens/LeaderBoard';
+import LoginScreen from './src/screens/Auth/LoginInScreen';
+import SignInScreen from './src/screens/Auth/SignInScreen';
+import Genre from './src/screens/QuesType/Genre';
+import LeaderBoard from './src/screens/LeaderBoard/LeaderBoard';
 
 const Stack = createStackNavigator();
 
@@ -37,13 +37,13 @@ App = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          component={page1}
-          name="page1"
+          component={Quiz}
+          name="Quiz"
           options={{headerShown: false}}
         />
         <Stack.Screen
-          component={page3}
-          name="page3"
+          component={FinalScreen}
+          name="FinalScreen"
           options={{headerShown: false}}
         />
         <Stack.Screen

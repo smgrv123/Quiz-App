@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, FlatList} from 'react-native';
-import Store from '../Store';
+import Store from '../../Store';
 import firestore from '@react-native-firebase/firestore';
-import ActivityInd from './ActivityInd';
-import styles from '../styles/LeaderStyle'
+import ActivityInd from '../ActivityInd';
+import styles from '../../styles/LeaderStyle'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default LeaderBoard = (props) => {
@@ -29,8 +29,8 @@ export default LeaderBoard = (props) => {
           setLeader(temp);
         });
       });
-    console.log(leader);
   }, []);
+  
   if (load) {
     return (
       <View style={styles.aBack}>

@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Alert} from 'react-native';
-import Store from '../Store';
+import Store from '../../Store';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import styles from '../styles/FinalStyle';
+import styles from '../../styles/FinalStyle';
 import firestore from '@react-native-firebase/firestore';
 
 export default page3 = (props) => {
-  console.log('heelo', Store.email);
   const usersCollection = firestore().collection('LeaderBoard');
 
   const upload = () => {
@@ -30,7 +29,6 @@ export default page3 = (props) => {
           ],
           {cancelable: false},
         );
-        console.log('User added!');
       })
       .catch((err) => console.log(err));
   };

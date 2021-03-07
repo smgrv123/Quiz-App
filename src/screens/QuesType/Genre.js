@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, TouchableOpacity, Text, Alert, StyleSheet} from 'react-native';
-import Store from '../Store';
+import Store from '../../Store';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
-import styles from '../styles/GenreStyle';
+import styles from '../../styles/GenreStyle';
 
 export default Genre = (props) => {
   return (
@@ -80,7 +80,7 @@ export default Genre = (props) => {
               {cancelable: false},
             );
           } else {
-            props.navigation.replace('page1');
+            props.navigation.replace('Quiz');
           }
         }}>
         <Text style={styles.NavText}>Let's Jump In</Text>
