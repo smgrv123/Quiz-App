@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Alert, StyleSheet} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import RadioForm from 'react-native-simple-radio-button';
-import Store from '../Store';
-import styles from '../styles/TypeStyle';
+import Store from '../../Store';
+import styles from '../../styles/TypeStyle';
 
 var diff = [
   {value: 'easy', label: 'Easy'},

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity,Alert} from 'react-native';
 import auth from '@react-native-firebase/auth';
-import styles from '../styles/AuthStyle';
-import Store from '../Store';
+import styles from '../../styles/AuthStyle';
+import Store from '../../Store';
 
 export default SignInScreen = (props) => {
   const [initializing, setInitializing] = useState(true);
@@ -24,15 +24,15 @@ export default SignInScreen = (props) => {
     auth()
       .signInWithEmailAndPassword(email, pass)
       .then(() => {
-        console.log('User signed in!');
+        Alert.alert('User signed in!');
       })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
+          Alert.alert('That email address is already in use!');
         }
 
         if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
+          Alert.alert('That email address is invalid!');
         }
 
         console.error(error);
@@ -107,7 +107,6 @@ export default SignInScreen = (props) => {
         onPress={() => {
           props.navigation.navigate('Type');
           Store.email = user.email;
-          console.log(Store.email)
         }}>
         <Text style={styles.textAfter}>Journey to be a Quiz Masterrr!!</Text>
       </TouchableOpacity>
